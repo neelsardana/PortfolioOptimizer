@@ -2,28 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.animate-scroll:hover {
+  animation-play-state: paused;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 17, 17, 17;
+  --background-end-rgb: 17, 17, 17;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  letter-spacing: -0.01em;
+}
+
+@layer components {
+  .nav-link {
+    @apply text-white/80 hover:text-white transition-colors duration-200 text-sm;
+  }
+  
+  .card {
+    @apply bg-[rgba(25,25,25,0.95)] backdrop-blur-lg rounded-xl border border-white/10 p-6;
+  }
+
+  .metric-card {
+    @apply bg-white/5 p-6 rounded-xl border border-white/10;
+  }
+
+  .contact-button {
+    @apply bg-white text-black px-6 py-2 rounded-full font-medium text-sm ml-8;
+  }
 }
 
 @layer utilities {
