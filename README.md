@@ -54,20 +54,39 @@ src/
    yarn install
    ```
 3. Set up environment variables:
-   ```env
-   FIREBASE_API_KEY=your_api_key
-   FIREBASE_AUTH_DOMAIN=your_auth_domain
-   FIREBASE_PROJECT_ID=your_project_id
-   FIREBASE_STORAGE_BUCKET=your_storage_bucket
-   FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-   FIREBASE_APP_ID=your_app_id
-   ```
+   - Copy `.env.example` to `.env.local`
+   - Fill in your Firebase configuration:
+     ```env
+     NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+     NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+     NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+     NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+     NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+     ```
 4. Run the development server:
    ```bash
    npm run dev
    # or
    yarn dev
    ```
+
+## Security Notes
+
+1. **Environment Variables**: 
+   - Never commit `.env.local` or any other files containing actual API keys
+   - Use `.env.example` as a template for required environment variables
+   - Keep all API keys and secrets secure
+
+2. **Firebase Security**:
+   - Set up proper Firebase Security Rules for your database and storage
+   - Configure authentication providers in Firebase Console
+   - Restrict API key usage in Firebase Console
+
+3. **API Security**:
+   - All API routes are protected and require authentication
+   - Rate limiting is implemented on API routes
+   - Data validation is performed on all inputs
 
 ## Key Features
 
